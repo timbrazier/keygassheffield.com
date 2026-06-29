@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keygas – Plumbing and Heating Sheffield</title>
+  <meta name="description" content="Keygas – Reliable plumbing, heating and gas services in Sheffield & surrounding areas. Gas Safe registered since 2006. Call 07305 410 753." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --blue: #2563eb;
+      --blue-light: #eff6ff;
+      --orange: #f97316;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 88px;
+    }
+    .logo img { height: 60px; width: auto; display: block; }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-cta a.phone {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .header-cta a.phone:hover { color: var(--blue); }
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-primary { background: #0072bc; color: var(--white); }
+    .btn-primary:hover { background: #005fa0; }
+
+    /* ── Hero ── */
+    .hero {
+      background: #0072bc;
+      color: var(--white);
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 700px;
+      margin: 0 auto 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 0.55rem 1.25rem;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* ── Trust bar ── */
+    .trust-bar {
+      background: var(--blue-light);
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid #dbeafe;
+    }
+    .trust-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .trust-item svg { flex-shrink: 0; color: var(--blue); }
+
+    /* ── Section wrapper ── */
+    section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Services ── */
+    #services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .service-card {
+      background: var(--blue-light);
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: box-shadow 0.15s;
+    }
+    .service-card:hover { box-shadow: 0 4px 18px rgba(37,99,235,0.1); }
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+    .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--navy); }
+    .service-card p { font-size: 0.875rem; color: var(--muted); }
+
+    /* ── About ── */
+    #about { background: #f8fafc; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-img { border-radius: 12px; overflow: hidden; }
+    .about-img img { width: 100%; height: 340px; object-fit: cover; display: block; }
+    .about-text .section-sub { margin-bottom: 1.5rem; }
+    .stat-row { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.75rem; }
+    .stat { }
+    .stat strong { display: block; font-size: 2rem; font-weight: 800; color: var(--blue); line-height: 1; }
+    .stat span { font-size: 0.875rem; color: var(--muted); }
+
+    /* ── Work gallery ── */
+    #work { background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item { border-radius: 10px; overflow: hidden; position: relative; }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: var(--white);
+      padding: 1rem 0.75rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* ── Partners ── */
+    #partners { background: #f8fafc; padding: 3.5rem 1.5rem; }
+    .partners-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .partners-inner p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem 3rem;
+    }
+    .partner-logos img { height: 50px; width: auto; filter: grayscale(1); opacity: 0.65; transition: opacity 0.2s, filter 0.2s; }
+    .partner-logos img:hover { filter: none; opacity: 1; }
+
+    /* ── Contact ── */
+    #contact { background: var(--navy); color: var(--white); text-align: center; }
+    #contact .section-title { color: var(--white); }
+    #contact .section-sub { color: #94a3b8; margin: 0 auto 2.5rem; }
+    .contact-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      min-width: 200px;
+    }
+    .contact-card svg { color: var(--white); margin-bottom: 0.5rem; }
+    .contact-card p { font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.25rem; }
+    .contact-card a, .contact-card strong {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .contact-card a:hover { color: var(--orange); }
+
+    /* ── Footer ── */
+    footer {
+      background: #0072bc;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.825rem;
+    }
+    footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 500px) {
+      .header-cta .btn { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/f8eabec2-e7cf-406f-819c-aa99128e603f/Keygas+Logo.png?format=300w" alt="Keygas – Plumbing and Heating" />
+    </a>
+    <div class="header-cta">
+      <a href="tel:07305410753" class="phone">07305 410 753</a>
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Plumbing, heating &amp; gas services based in Sheffield</h1>
+  <p>Gas Safe registered engineers covering Sheffield and surrounding areas — reliable, trusted, and trading since 2006.</p>
+  <div class="hero-actions">
+    <a href="tel:07305410753" class="btn btn-outline">Call 07305 410 753</a>
+    <a href="#services" class="btn btn-outline">Our services</a>
+  </div>
+</section>
+
+<!-- Trust bar -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+      Gas Safe Registered · No. 935887
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      Trading since 2006
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+      Sheffield &amp; South Yorkshire
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+      Energy Efficiency recommended
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label">What we do</div>
+    <h2 class="section-title">Our services</h2>
+    <p class="section-sub">From routine boiler servicing to full heating system installations — we handle it all.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" /></svg>
+        </div>
+        <h3>Boiler Service &amp; Repair</h3>
+        <p>Annual servicing and fault diagnosis to keep your boiler running safely and efficiently.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        </div>
+        <h3>Boiler Upgrades</h3>
+        <p>New boiler installations from leading brands including Worcester and Vaillant.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /></svg>
+        </div>
+        <h3>Gas Fire Installation &amp; Service</h3>
+        <p>Safe installation, commissioning, and servicing of gas fires to manufacturer standards.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3" /></svg>
+        </div>
+        <h3>Heating Systems</h3>
+        <p>Full central heating installation, power flushing, and system upgrades.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+        </div>
+        <h3>Unvented Hot Water Cylinders</h3>
+        <p>Supply, installation, and maintenance of unvented hot water storage systems.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+        </div>
+        <h3>Landlord &amp; Gas Safety Certificates</h3>
+        <p>CP12 gas safety inspections and certificates for landlords — fast and hassle-free.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+        </div>
+        <h3>General Plumbing &amp; Gas Work</h3>
+        <p>Leaks, repairs, pipe work, and any other domestic plumbing or gas requirements.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/afc847d7-0623-45c5-b806-c27bc282998e/WhatsApp+Image+2025-05-07+at+19.28.16.jpeg"
+          alt="Keygas engineer at work"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-text">
+        <div class="section-label">About Keygas</div>
+        <h2 class="section-title">Trusted heating engineers since 2006</h2>
+        <p class="section-sub">
+          We're one of the most reliable and trusted engineers in Sheffield and surrounding areas.
+          Gas Safe registered and Energy Efficiency recommended, we bring nearly two decades of
+          experience to every job — whether that's a simple boiler service or a full heating
+          system installation.
+        </p>
+        <p style="color:var(--muted); font-size:0.95rem;">
+          All our work is carried out to the highest standard, with your safety and satisfaction
+          always our priority.
+        </p>
+        <div class="stat-row">
+          <div class="stat">
+            <strong>20+</strong>
+            <span>Years experience</span>
+          </div>
+          <div class="stat">
+            <strong>935887</strong>
+            <span>Gas Safe Reg. No.</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Gas Safe certified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent work gallery -->
+<section id="work">
+  <div class="section-inner">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Recent installations</h2>
+    <p class="section-sub">A selection of our recent boiler installations across Sheffield.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/397e01b2-2514-4210-a21a-13c67cb5e2be/WhatsApp+Image+2025-06-19+at+18.04.58.jpeg" alt="Boiler installation – Woodhouse, Sheffield" loading="lazy" />
+        <div class="gallery-caption">Worcester 4000 · Woodhouse</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/b3617acf-bd54-4705-8b9d-4f7a7650e7b4/WhatsApp+Image+2025-06-19+at+18.03.52.jpeg" alt="Boiler installation – Dore, Sheffield" loading="lazy" />
+        <div class="gallery-caption">Worcester 4000 · Dore</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/e43eb80d-ff16-48ee-bb62-ae92404d938a/WhatsApp+Image+2025-06-19+at+18.10.19.jpeg" alt="Boiler installation – Handsworth, Sheffield" loading="lazy" />
+        <div class="gallery-caption">Baxi 830 · Handsworth</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/1f7a1fb3-bad9-42be-b858-76ce569a111b/WhatsApp+Image+2025-05-07+at+19.28.27.jpeg" alt="Boiler replacement – Charnock, Sheffield" loading="lazy" />
+        <div class="gallery-caption">Boiler replacement · Charnock</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/1545b627-f7fc-4406-ab5c-359db509955c/WhatsApp+Image+2025-05-07+at+19.26.19.jpeg" alt="Heating installation Sheffield" loading="lazy" />
+        <div class="gallery-caption">Heating installation · Sheffield</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/698081e9-abe7-49fc-bb9d-ef70ac25c45f/WhatsApp+Image+2025-05-07+at+19.26.41.jpeg" alt="Heating installation Sheffield" loading="lazy" />
+        <div class="gallery-caption">Heating installation · Sheffield</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/41afdb6e-68c0-4214-9efa-44e18f7b0b34/WhatsApp+Image+2025-05-07+at+19.26.58.jpeg" alt="Plumbing work Sheffield" loading="lazy" />
+        <div class="gallery-caption">Plumbing work · Sheffield</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners / Accreditations -->
+<section id="partners">
+  <div class="partners-inner">
+    <p>Registered, accredited &amp; recommended by</p>
+    <div class="partner-logos">
+      <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/26151af0-35bb-4393-9042-7cf56acdaf1c/gas-safe.png" alt="Gas Safe" />
+      <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/a15fcc9b-41ac-42b2-95d0-60667d454842/worcester.png" alt="Worcester Bosch" />
+      <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/6491f369-c003-4bf4-bea3-37f56c514c51/energy-efficiency.png" alt="Energy Efficiency" />
+      <img src="https://images.squarespace-cdn.com/content/v1/682b96fa4a8f033480aac0b5/ef8b6a9f-21a4-474c-85be-7455a64c3397/vaillant.png" alt="Vaillant" />
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label" style="color:#93c5fd;">Get in touch</div>
+    <h2 class="section-title">Ready to book or get a quote?</h2>
+    <p class="section-sub">Give us a call or drop us a message on social media — we'll get back to you promptly.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:block;margin:0 auto 0.5rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+        <p>Phone</p>
+        <a href="tel:07305410753">07305 410 753</a>
+      </div>
+      <div class="contact-card">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:block;margin:0 auto 0.5rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+        <p>Location</p>
+        <strong>Sheffield, South Yorkshire</strong>
+      </div>
+      <div class="contact-card">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:block;margin:0 auto 0.5rem;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path stroke-linecap="round" stroke-linejoin="round" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" /></svg>
+        <p>Instagram</p>
+        <a href="https://www.instagram.com/keygassheffield" target="_blank" rel="noopener noreferrer">@keygassheffield</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Keygas – Plumbing and Heating · Gas Safe Registered No. 935887 · Sheffield, South Yorkshire</p>
+</footer>
+
+</body>
+</html>
